@@ -72,6 +72,21 @@ const markMilestoneAsCompleted = async (req, res) => {
 
     //check if all milestones are completed
     const allMilestones = await Milestone.find({ jobId: milestone.jobId });
+
+    // number of milestones associated with the job
+    const countMilestones = allMilestones.length;
+
+    const jobReq = await ServiceRequest.findById(milestone.jobId);
+
+    // update progress of job based on milestone completion
+    jobReq.progress = Math.round(
+      (allMilestones.filter((m) => m.status === "Completed").length /
+        countMilestones) *
+        100
+    );
+
+    await jobReq.save();
+
     const allCompleted = allMilestones.every((m) => m.status === "Completed");
 
     if (allCompleted) {

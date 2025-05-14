@@ -164,7 +164,7 @@ const FreelancerJobDetails = () => {
                         className="complete-milestone-button"
                         onClick={() => handleMilestoneComplete(milestone._id)}
                       >
-                        Mark as Complete
+                        Mark as Completed
                       </button>
                     )}
                   </li>
