@@ -15,4 +15,6 @@ router.get("/job/:jobId", getMilestones);
 //mark milestone as completed route
 router.put("/complete/:milestoneId", markMilestoneAsCompleted);
 
+router.post("/milestone/enable");
+
 module.exports = router;

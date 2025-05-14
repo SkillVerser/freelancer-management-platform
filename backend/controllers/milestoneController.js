@@ -63,6 +63,13 @@ const markMilestoneAsCompleted = async (req, res) => {
     milestone.status = "Completed";
     await milestone.save();
 
+    //Handle notification logic
+    await axios.post(`${API_URL}/api/milestone/enable`, {
+      jobId: milestone.jobId,
+      milestoneId: milestoneId
+    });
+    //
+
     //check if all milestones are completed
     const allMilestones = await Milestone.find({ jobId: milestone.jobId });
     const allCompleted = allMilestones.every((m) => m.status === "Completed");
