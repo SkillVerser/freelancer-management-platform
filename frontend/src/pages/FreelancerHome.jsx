@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./FreelancerHome.css";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
 import API_URL from "../config/api";
 
@@ -188,9 +189,10 @@ const FreelancerHome = () => {
           <p>No active projects found. Try applying to new jobs!</p>
         )}
       </section>
-      <footer className="footer">
+      {/*<footer className="footer">
         <p>© 2025 SkillVerse. All rights reserved. </p>
-      </footer>
+      </footer>*/}
+      <Footer />
     </main>
   );
 };

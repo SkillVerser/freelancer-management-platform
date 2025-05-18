@@ -61,7 +61,7 @@ const AuthOptions = () => {
               Continue with Google
             </button>
             {/* Added content to fill the right section */}
-            <div className="mt-4 px-3 py-4 rounded right-panel-features">
+            <section className="mt-4 px-3 py-4 rounded right-panel-features">
               <ul className="list-unstyled mb-4 right-panel-features-list">
                 <li className="mb-3 d-flex align-items-center">
                   <i
@@ -91,7 +91,7 @@ const AuthOptions = () => {
                 <br />
                 <footer className="blockquote-footer">Vincent Van Gogh</footer>
               </blockquote>
-            </div>
+            </section>
           </section>
         </section>
       </section>

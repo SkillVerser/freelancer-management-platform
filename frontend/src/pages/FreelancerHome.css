@@ -2,6 +2,10 @@
   font-family: Georgia, serif;
   padding: 2rem;
   margin: 0 auto;
+  /* Remove or reduce horizontal padding if present */
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
 }
 
 .welcome {

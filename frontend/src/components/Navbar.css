@@ -1,0 +1,37 @@
+.navbar-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+/*Adds space between settings logo and settings text */
+#settings-dropdown .bi-gear-fill {
+  margin-right: 0.4em;
+  vertical-align: middle;
+}
+
+/* Make all navbar buttons match the navbar background and remove border */
+.navbar-btn {
+  background-color: #000 !important;
+  border: none !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  transition: color 0.2s;
+}
+
+.navbar-btn:hover,
+.navbar-btn:focus {
+  color: #000 !important;
+}
