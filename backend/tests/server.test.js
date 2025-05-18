@@ -17,10 +17,10 @@ jest.mock('passport-google-oauth20', () => ({
 }));
 
 // mock passport-setup
-jest.mock('./configs/passport-setup', () => jest.fn());
+jest.mock('../configs/passport-setup', () => jest.fn());
 
 // mock database connection
-jest.mock('./configs/db-conn', () => ({
+jest.mock('../configs/db-conn', () => ({
   connectDB: jest.fn().mockResolvedValue()
 }));
 
@@ -46,7 +46,7 @@ jest.mock('connect-mongo', () => {
 });
 
 // import the app after all mocks are in place
-const app = require('./server');
+const app = require('../server');
 
 let server;
 
