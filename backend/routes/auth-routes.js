@@ -34,14 +34,14 @@ router.get("/logout", (req, res) => {
 router.get(
   "/google",
   passport.authenticate("google", {
-    scope: ["profile"],
+    scope: ["profile", "email"],
   })
 );
 
 //callback route for google to redirect to
 router.get("/google/callback", passport.authenticate("google"), (req, res) => {
   // to access currently logged in user : res.send(req.user)
-  console.log(req.user); // Log the user info for debugging
+  console.log("User in /google/callback route:", req.user); // Log the user info for debugging
   const isNewUser = req.user?.role === undefined; // Assuming role is not yet set for new users
 
   if (isNewUser) {
@@ -56,10 +56,14 @@ router.get("/google/callback", passport.authenticate("google"), (req, res) => {
 router.get("/me", (req, res) => {
   console.log("User Info:", req.user); // log the user info for debugging
   console.log("Session Info:", req.session); // log the session info for debugging
+  console.log("Checking for req.user.email:", req.user?._tempEmail);
 
   //gets current logged in users info from session for reqs
   if (req.user) {
-    res.status(200).json(req.user);
+    const userObj = req.user.toObject(); //convert mongoose doc to plain json object
+    userObj.email = req.user._tempEmail; //add email
+    //console.log("userObj:", userObj);
+    res.status(200).json(userObj);
   } else {
     res.status(401).json({ message: "Not authenticated" });
   }

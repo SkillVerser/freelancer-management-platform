@@ -6,6 +6,10 @@ import FileList from "../components/FileList";
 import API_URL from "../config/api";
 import axios from "axios";
 
+const user = JSON.parse(localStorage.getItem("user"));
+//console.log("User in local storage:", user);
+//console.log("Email:", user.email);
+
 const ClientJobDetails = () => {
   const { jobId } = useParams();
   const { state } = useLocation();
@@ -77,24 +81,14 @@ const ClientJobDetails = () => {
     fetchJobDetails();
   }, [jobId, job]);
 
-  if (loading) {
-    return <section className="loading">Loading job details...</section>;
-  }
-
-  if (error) {
-    return <section className="error">{error}</section>;
-  }
-
-  if (!job) {
-    return <section className="not-found">Job not found</section>;
-  }
   const handlePay = async (id) => {
     if (milestones.length === 0) {
       setShowNoMilestoneModal(true);
       return;
     }
     //console.log("Button clicked!");
-    const email = "***@example.com";
+    const email = user.email;
+    //console.log("Email in payment:", email);
     //need a call to backend to retrieve price from applications model.
     //need to handle payment logic as well
 
@@ -119,6 +113,18 @@ const ClientJobDetails = () => {
       console.error("Error creating checkout session:", error);
     }
   };
+
+  if (loading) {
+    return <section className="loading">Loading job details...</section>;
+  }
+
+  if (error) {
+    return <section className="error">{error}</section>;
+  }
+
+  if (!job) {
+    return <section className="not-found">Job not found</section>;
+  }
 
   return (
     <main className="client-job-details">

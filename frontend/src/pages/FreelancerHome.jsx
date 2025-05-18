@@ -39,8 +39,7 @@ const FreelancerHome = () => {
 
     fetchUser();
   }, []);
-
-  console.log(user);
+  console.log("User:", user);
 
   const fetchAcceptedJobs = async (freelancerId) => {
     try {

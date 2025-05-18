@@ -3,11 +3,17 @@ const GoogleStrategy = require("passport-google-oauth20");
 const User = require("../models/User");
 
 passport.serializeUser((user, done) => {
-  done(null, user.id);
+  done(null, {
+    id: user.id,
+    email: user._tempEmail || null,
+  });
 });
 
-passport.deserializeUser((id, done) => {
-  User.findById(id).then((user) => {
+passport.deserializeUser((obj, done) => {
+  User.findById(obj.id).then((user) => {
+    if (user) {
+      user._tempEmail = obj.email;
+    }
     done(null, user);
   });
 });
@@ -31,10 +37,14 @@ passport.use(
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
+        console.log("Profile Information:", profile);
+        console.log("profile email:", profile.emails[0].value);
+        const email = profile.emails[0]?.value;
         const existingUser = await User.findOne({ googleID: profile.id });
 
         if (existingUser) {
           console.log(`Logging in User ${profile.id}`);
+          existingUser._tempEmail = email; // temporarily attach email to be stored in session, not in DB
           return done(null, existingUser);
         } else {
           const newUser = new User({
@@ -42,6 +52,7 @@ passport.use(
             username: profile.displayName,
           });
           await newUser.save();
+          newUser._tempEmail = email;
           console.log(`New User Created: ${newUser}`);
           return done(null, newUser);
         }
