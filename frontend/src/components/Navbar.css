@@ -22,16 +22,22 @@
   vertical-align: middle;
 }
 
-/* Make all navbar buttons match the navbar background and remove border */
 .navbar-btn {
   background-color: #000 !important;
   border: none !important;
   color: #fff !important;
   box-shadow: none !important;
-  transition: color 0.2s;
+  transition: color 0.2s, background 0.2s;
 }
 
 .navbar-btn:hover,
-.navbar-btn:focus {
-  color: #000 !important;
+.navbar-btn:focus-visible {
+  color: #cccccc !important; /* Slightly darker shade of white */
+  background-color: #000 !important;
+  outline: none !important;
+}
+
+.navbar-btn:active {
+  color: #fff !important; /* Ensure it returns to white after click */
+  background-color: #000 !important;
 }
