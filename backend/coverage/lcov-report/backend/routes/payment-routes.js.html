@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">37.03% </span>
+                <span class="strong">92.59% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/27</span>
+                <span class='fraction'>25/27</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">10% </span>
+                <span class="strong">90% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/10</span>
+                <span class='fraction'>9/10</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">37.03% </span>
+                <span class="strong">92.59% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/27</span>
+                <span class='fraction'>25/27</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -154,26 +154,26 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -184,9 +184,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -206,11 +206,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -237,22 +237,22 @@ router.post("/create-checkout-session", async (req, res) =&gt; {
 &nbsp;
   const serviceRequest = await ServiceRequest.findById(jobId);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  console.log("Initializing payment for job:", jobId);</span>
+  console.log("Initializing payment for job:", jobId);
 &nbsp;
   // calculate progress completed since last payment
-  const { progressActual, progressPaid } = <span class="cstat-no" title="statement not covered" >serviceRequest;</span>
-  const progressDelta = <span class="cstat-no" title="statement not covered" >progressActual - progressPaid;</span>
+  const { progressActual, progressPaid } = serviceRequest;
+  const progressDelta = progressActual - progressPaid;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (progressDelta &lt;= 0) {</span>
-<span class="cstat-no" title="statement not covered" >    return res.status(400).json({ message: "No payment due" });</span>
+  if (progressDelta &lt;= 0) {
+    return res.status(400).json({ message: "No payment due" });
   }
 &nbsp;
   // calculate amount due based on progress delta
-  const amountDue = <span class="cstat-no" title="statement not covered" >(progressDelta / 100) * serviceRequest.price;</span>
-<span class="cstat-no" title="statement not covered" >  console.log("Amount due:", amountDue);</span>
+  const amountDue = (progressDelta / 100) * serviceRequest.price;
+  console.log("Amount due:", amountDue);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (!email || !amountDue) {</span>
-<span class="cstat-no" title="statement not covered" >    return res.status(400).json({ error: "Email and amount are required" });</span>
+  if (!email || !amountDue) {
+    return res.status(400).json({ error: "Email and amount are required" });
   }
 &nbsp;
   /*
@@ -263,9 +263,9 @@ router.post("/create-checkout-session", async (req, res) =&gt; {
   await serviceRequest.save();
   */
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  try {</span>
+  try {
     //console.log("PAYSTACK_KEY:", process.env.PAYSTACK_SECRET_KEY ? "***loaded***" : "MISSING!");
-    const paystackResponse = <span class="cstat-no" title="statement not covered" >await axios.post(</span>
+    const paystackResponse = await axios.post(
       "https://api.paystack.co/transaction/initialize",
       {
         email: email,
@@ -285,11 +285,11 @@ router.post("/create-checkout-session", async (req, res) =&gt; {
       }
     );
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    console.log("Paystack response:", paystackResponse.data);</span>
-<span class="cstat-no" title="statement not covered" >    if (paystackResponse.data.status === true) {</span>
-<span class="cstat-no" title="statement not covered" >      res.json({ checkoutUrl: paystackResponse.data.data.authorization_url });</span>
+    console.log("Paystack response:", paystackResponse.data);
+    if (paystackResponse.data.status === true) {
+      res.json({ checkoutUrl: paystackResponse.data.data.authorization_url });
     } else {
-<span class="cstat-no" title="statement not covered" >      res</span>
+      res
         .status(500)
         .json({ error: "Error initializing Paystack transaction" });
     }
@@ -307,7 +307,7 @@ module.exports = router;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-05-16T20:07:50.471Z
+                at 2025-05-18T16:48:51.373Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

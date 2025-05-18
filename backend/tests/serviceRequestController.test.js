@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { createServiceRequest } = require("./serviceRequestController");
+const { createServiceRequest } = require("../controllers/serviceRequestController");
 const ServiceRequest = require("../models/ServiceRequest");
 
 // service request model mock

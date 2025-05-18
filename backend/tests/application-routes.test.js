@@ -15,7 +15,7 @@ const Application = require("../models/Application");
 const ServiceRequest = require("../models/ServiceRequest");
 
 // import and use the application routes we want to test
-const applicationRoutes = require("./application-routes");
+const applicationRoutes = require("../routes/application-routes");
 app.use("/api/applications", applicationRoutes);
 
 // group all application routes tests together

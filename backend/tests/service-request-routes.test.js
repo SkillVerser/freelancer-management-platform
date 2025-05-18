@@ -1,6 +1,6 @@
 const request = require("supertest");
 const express = require("express");
-const router = require("./service-request-routes");
+const router = require("../routes/service-request-routes");
 
 const ServiceRequest = require("../models/ServiceRequest");
 const User = require("../models/User");

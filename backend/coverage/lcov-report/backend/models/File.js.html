@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for backend/models/ProfileDetails.js</title>
+    <title>Code coverage report for backend/models/File.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">backend/models</a> ProfileDetails.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">backend/models</a> File.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -99,14 +99,12 @@
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
 <a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -135,43 +133,54 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span></td><td class="text"><pre class="prettyprint lang-js">const mongoose = require("mongoose");
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const mongoose = require("mongoose");
 &nbsp;
-const profileSchema = new mongoose.Schema(
+const fileSchema = new mongoose.Schema(
   {
-    user: {
+    jobId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "ServiceRequest",
+      required: true,
+    },
+    filename: {
+      type: String,
+      required: true,
+    },
+    originalName: {
+      type: String,
+      required: true,
+    },
+    fileSize: {
+      type: Number,
+      required: true,
+    },
+    uploadedBy: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
     },
-    location: {
+    contentType: {
       type: String,
-      default: null,
+      required: true,
     },
-    gender: {
+    storagePath: {
       type: String,
-      default: null,
-    },
-    occupation: {
-      type: String,
-      default: null,
-    },
-    skills: {
-      type: [String], // Array of strings for skills
-      default: null,
-    },
-    about: {
-      type: String,
-      default: null,
+      required: true,
     },
   },
-  {
-    timestamps: true, //stores created at, updated at information (maybe not necessary)
-  }
+  { timestamps: true }
 );
 &nbsp;
-//tells mongoose to create a new collection called "profiledetails", and to use the previously defined schema
-module.exports = mongoose.model("ProfileDetails", profileSchema);</pre></td></tr></table></pre>
+module.exports = mongoose.model("File", fileSchema);
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
