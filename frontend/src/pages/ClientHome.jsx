@@ -170,6 +170,9 @@ const handleJobButtonClick = (job) => {
         {/* Welcome Banner */}
         <header className="welcome-banner">
           <h1 className="heading1">SkillVerse</h1>
+          <p className="welcome-client">
+          A single hub to connect with top freelancers, track your projects, and receive results you can trust.
+        </p>
         </header>
 
         {/* Service buttons*/}
