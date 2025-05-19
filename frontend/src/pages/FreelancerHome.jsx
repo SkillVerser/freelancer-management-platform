@@ -14,7 +14,8 @@ const FreelancerHome = () => {
   const loading = false;
   const acceptedJobs = [];
   const handleProjectClick = () => {};
-  const handleQuestionClick = (num) => setVisibleAnswer(num === visibleAnswer ? null : num);
+  const handleQuestionClick = (num) =>
+    setVisibleAnswer(num === visibleAnswer ? null : num);
 
   return (
     <main className="freelancer-home">
@@ -29,76 +30,91 @@ const FreelancerHome = () => {
 
       <h2 className="how">How it works</h2>
       <section className="worklist">
-        <div className="howbox-flip">
-          <div className="howbox-inner">
-            <div className="howbox howbox-front">Find a project</div>
-            <div className="howbox howbox-back">
-              Accepting a project means you're ready to take it on. Make sure it matches your skills, then start working and deliver great results.
-            </div>
-          </div>
-        </div>
+        <section className="howbox-flip">
+          <section className="howbox-inner">
+            <section className="howbox howbox-front">Find a project</section>
+            <section className="howbox howbox-back">
+              Accepting a project means you're ready to take it on. Make sure it
+              matches your skills, then start working and deliver great results.
+            </section>
+          </section>
+        </section>
         <BsArrowRight className="how-arrow" aria-hidden="true" />
-        <div className="howbox-flip">
-          <div className="howbox-inner">
-            <div className="howbox howbox-front">Deliver great work</div>
-            <div className="howbox howbox-back">
-              Once you’ve completed the project, submit your work on time and ensure it meets the client’s expectations. High-quality work leads to positive reviews and more opportunities.
-            </div>
-          </div>
-        </div>
+        <section className="howbox-flip">
+          <section className="howbox-inner">
+            <section className="howbox howbox-front">
+              Deliver great work
+            </section>
+            <section className="howbox howbox-back">
+              Once you’ve completed the project, submit your work on time and
+              ensure it meets the client’s expectations. High-quality work leads
+              to positive reviews and more opportunities.
+            </section>
+          </section>
+        </section>
         <BsArrowRight className="how-arrow" aria-hidden="true" />
-        <div className="howbox-flip">
-          <div className="howbox-inner">
-            <div className="howbox howbox-front">Get paid</div>
-            <div className="howbox howbox-back">
-              After the client approves your work, payment is released to your account. Quick, reliable delivery helps build trust and keeps the earnings coming.
-            </div>
-          </div>
-        </div>
+        <section className="howbox-flip">
+          <section className="howbox-inner">
+            <section className="howbox howbox-front">Get paid</section>
+            <section className="howbox howbox-back">
+              After the client approves your work, payment is released to your
+              account. Quick, reliable delivery helps build trust and keeps the
+              earnings coming.
+            </section>
+          </section>
+        </section>
       </section>
 
       <h2 className="servheading">Popular Services</h2>
       <section className="services">
-        <div className="servbox-flip">
-          <div className="servbox-inner">
-            <div className="servbox servbox-front">Software Development</div>
-            <div className="servbox servbox-back">
-              Build web, mobile, or desktop applications for clients using modern technologies.
-            </div>
-          </div>
-        </div>
-        <div className="servbox-flip">
-          <div className="servbox-inner">
-            <div className="servbox servbox-front">Data Science</div>
-            <div className="servbox servbox-back">
-              Analyze data, build models, and provide insights to help clients make data-driven decisions.
-            </div>
-          </div>
-        </div>
-        <div className="servbox-flip">
-          <div className="servbox-inner">
-            <div className="servbox servbox-front">Creating Logos</div>
-            <div className="servbox servbox-back">
+        <section className="servbox-flip">
+          <section className="servbox-inner">
+            <section className="servbox servbox-front">
+              Software Development
+            </section>
+            <section className="servbox servbox-back">
+              Build web, mobile, or desktop applications for clients using
+              modern technologies.
+            </section>
+          </section>
+        </section>
+        <section className="servbox-flip">
+          <section className="servbox-inner">
+            <section className="servbox servbox-front">Data Science</section>
+            <section className="servbox servbox-back">
+              Analyze data, build models, and provide insights to help clients
+              make data-driven decisions.
+            </section>
+          </section>
+        </section>
+        <section className="servbox-flip">
+          <section className="servbox-inner">
+            <section className="servbox servbox-front">Creating Logos</section>
+            <section className="servbox servbox-back">
               Design unique and memorable logos to help brands stand out.
-            </div>
-          </div>
-        </div>
-        <div className="servbox-flip">
-          <div className="servbox-inner">
-            <div className="servbox servbox-front">Graphic Design</div>
-            <div className="servbox servbox-back">
-              Create stunning graphics for web, print, and social media campaigns.
-            </div>
-          </div>
-        </div>
-        <div className="servbox-flip">
-          <div className="servbox-inner">
-            <div className="servbox servbox-front">Digital Marketing</div>
-            <div className="servbox servbox-back">
-              Promote brands and products through SEO, social media, and online ads.
-            </div>
-          </div>
-        </div>
+            </section>
+          </section>
+        </section>
+        <section className="servbox-flip">
+          <section className="servbox-inner">
+            <section className="servbox servbox-front">Graphic Design</section>
+            <section className="servbox servbox-back">
+              Create stunning graphics for web, print, and social media
+              campaigns.
+            </section>
+          </section>
+        </section>
+        <section className="servbox-flip">
+          <section className="servbox-inner">
+            <section className="servbox servbox-front">
+              Digital Marketing
+            </section>
+            <section className="servbox servbox-back">
+              Promote brands and products through SEO, social media, and online
+              ads.
+            </section>
+          </section>
+        </section>
       </section>
 
       {/* Find Jobs Section */}
