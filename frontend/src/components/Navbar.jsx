@@ -81,6 +81,7 @@ const Navbar = () => {
 
       if (response.ok) {
         setStatus("success");
+        console.log(status);
         setRequestedRole("");
         setMessage("");
       } else {
@@ -99,17 +100,11 @@ const Navbar = () => {
       <div className="navbar-flex">
         {/* Left side: Home and Profile buttons */}
         <div className="navbar-left">
-          <Button
-            className="ms-3 navbar-btn"
-            onClick={showHomePage}
-          >
+          <Button className="ms-3 navbar-btn" onClick={showHomePage}>
             <i className="bi bi-house-door-fill me-2"></i>
             Home
           </Button>
-          <Button
-            className="ms-3 navbar-btn"
-            onClick={showProfile}
-          >
+          <Button className="ms-3 navbar-btn" onClick={showProfile}>
             <i className="bi bi-person-circle me-2"></i>
             My Profile
           </Button>

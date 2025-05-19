@@ -1,21 +1,79 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { BsArrowRight, BsBriefcase } from "react-icons/bs";
 import "./FreelancerHome.css";
+import API_URL from "../config/api";
+
+const user = JSON.parse(localStorage.getItem("user"));
+console.log(user);
 
 const FreelancerHome = () => {
-  // Example state for FAQ (replace with your logic as needed)
   const [visibleAnswer, setVisibleAnswer] = useState(null);
 
-  // Example navigation and job data (replace with your logic as needed)
   const navigate = useNavigate();
-  const loading = false;
-  const acceptedJobs = [];
-  const handleProjectClick = () => {};
+  const [acceptedJobs, setAcceptedJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null);
+  const handleProjectClick = (id) => {
+    navigate(`/freelancer/job/${id}`);
+  };
   const handleQuestionClick = (num) =>
     setVisibleAnswer(num === visibleAnswer ? null : num);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const res = await fetch(`${API_URL}/auth/me`, {
+          credentials: "include",
+        });
+        if (res.ok) {
+          const userData = await res.json();
+          localStorage.setItem("user", JSON.stringify(userData));
+          setUser(userData);
+          console.log("User data:", userData);
+
+          // After fetching user, fetch their accepted jobs
+          if (userData && userData._id) {
+            fetchAcceptedJobs(userData._id);
+          }
+        } else {
+          console.error("Failed to fetch user info");
+          setLoading(false);
+        }
+      } catch (err) {
+        console.error("Error fetching user info:", err);
+        setLoading(false);
+      }
+    };
+
+    fetchUser();
+  }, []);
+  console.log("User:", user);
+
+  const fetchAcceptedJobs = async (freelancerId) => {
+    try {
+      const res = await fetch(
+        `${API_URL}/api/service-requests/freelancer/jobs/${freelancerId}`,
+        {
+          credentials: "include",
+        }
+      );
+
+      if (res.ok) {
+        const jobsData = await res.json();
+        setAcceptedJobs(jobsData);
+        console.log("Accepted jobs:", jobsData);
+      } else {
+        console.error("Failed to fetch accepted jobs");
+      }
+    } catch (err) {
+      console.error("Error fetching accepted jobs:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <main className="freelancer-home">
