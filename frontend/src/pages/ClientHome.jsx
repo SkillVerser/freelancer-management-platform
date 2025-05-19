@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./ClientHome.css";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import axios from "axios";
 import { Modal, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
@@ -169,6 +170,9 @@ const handleJobButtonClick = (job) => {
         {/* Welcome Banner */}
         <header className="welcome-banner">
           <h1 className="heading1">SkillVerse</h1>
+          <p className="welcome-client">
+          A single hub to connect with top freelancers, track your projects, and receive results you can trust.
+        </p>
         </header>
 
         {/* Service buttons*/}
@@ -317,12 +321,6 @@ const handleJobButtonClick = (job) => {
           )}
         </section>
 
-        {/* Footer */}
-        <footer className="Ebrahimfooter">
-          <section>
-            <p>&copy; 2025 SkillVerse. All rights reserved.</p>
-          </section>
-        </footer>
       </section>
       <Modal show={showModal} onHide={() => setShowModal(false)} centered>
         <Modal.Header closeButton>
@@ -521,6 +519,8 @@ const handleJobButtonClick = (job) => {
           </Button>
         </Modal.Footer>
       </Modal>
+
+      <Footer />
     </main>
   );
 };

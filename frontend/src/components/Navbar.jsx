@@ -3,32 +3,42 @@ import Dropdown from "react-bootstrap/Dropdown";
 import { Modal, Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import API_URL from "../config/api";
+import "./Navbar.css";
 
 const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
-  //const [reason, setReason] = useState("");
-
-  //Handling role change request by a user
   const [requestedRole, setRequestedRole] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(null);
 
-  //Initialize useNavigate hook
   const navigate = useNavigate();
 
-  //Function to take user to the profile page once the user clicks on the profile button
+  // Go to profile page
   const showProfile = () => {
     console.log("Showing profile...");
-    navigate("/profile"); //Redirect to the profile page
+    navigate("/profile");
   };
 
-  // Function to handle opening the modal
+  // Go to home page
+  const showHomePage = () => {
+    console.log("Showing home page...");
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user && user.role === "freelancer") {
+      navigate("/freelancer/home");
+    } else if (user && user.role === "client") {
+      navigate("/client/home");
+    } else {
+      navigate("/");
+    }
+  };
+
+  // Open modal
   const handleShowModal = () => setShowModal(true);
 
-  // Function to handle closing the modal
+  // Close modal
   const handleCloseModal = () => setShowModal(false);
 
-  //Added the logout handler
+  // Logout handler
   const handleLogout = async () => {
     try {
       console.log("Logging out...");
@@ -40,7 +50,7 @@ const Navbar = () => {
 
       if (res.ok) {
         console.log("Logout successful");
-        navigate("/"); // redirect to the AuthLogin page
+        navigate("/");
       } else {
         console.error("Logout failed:", res.status);
       }
@@ -49,10 +59,9 @@ const Navbar = () => {
     }
   };
 
-  // Function to handle form submission (this is just an example for now)
+  // Handle role change form submission
   const handleSubmitReason = async (e) => {
     console.log("Reason for changing roles:", message);
-    // Add logic to handle the reason submission (e.g., API call)
     e.preventDefault();
 
     const payload = {
@@ -72,10 +81,9 @@ const Navbar = () => {
 
       if (response.ok) {
         setStatus("success");
-        console.log(status); //just for debugging
+        console.log(status);
         setRequestedRole("");
         setMessage("");
-        console.log("response is ok here"); //debugging
       } else {
         setStatus("error");
       }
@@ -84,35 +92,42 @@ const Navbar = () => {
       setStatus("error");
     }
 
-    handleCloseModal(); // Close the modal after submission
-    //navigate("/admin/support");
+    handleCloseModal();
   };
-  return (
-    <nav className="bg-slate-800 text-white px-8 py-4 flex justify-end items-center">
-      <ul className="">
-        {/*<li><a href="#about" className="font-semibold hover:underline">About</a></li>*/}
 
-        {/* Settings Dropdown */}
-        <li>
+  return (
+    <nav className="bg-slate-800 text-white px-8 py-4">
+      <div className="navbar-flex">
+        {/* Left side: Home and Profile buttons */}
+        <div className="navbar-left">
+          <Button className="ms-3 navbar-btn" onClick={showHomePage}>
+            <i className="bi bi-house-door-fill me-2"></i>
+            Home
+          </Button>
+          <Button className="ms-3 navbar-btn" onClick={showProfile}>
+            <i className="bi bi-person-circle me-2"></i>
+            My Profile
+          </Button>
+        </div>
+        {/* Right side: Settings Dropdown */}
+        <div className="navbar-right">
           <Dropdown align="end">
             <Dropdown.Toggle
-              variant="link"
+              className="text-white navbar-btn"
               id="settings-dropdown"
-              className="text-white"
             >
-              <i className="bi bi-gear-fill"></i>{" "}
+              <i className="bi bi-gear-fill"></i>
+              Settings
             </Dropdown.Toggle>
-
             <Dropdown.Menu>
-              <Dropdown.Item onClick={showProfile}>My Profile</Dropdown.Item>
               <Dropdown.Item onClick={handleShowModal}>
                 Change Roles
               </Dropdown.Item>
-              <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>              
+              <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-        </li>
-      </ul>
+        </div>
+      </div>
       {/* Modal for asking reason for changing roles */}
       <Modal show={showModal} onHide={handleCloseModal}>
         <Modal.Header closeButton>

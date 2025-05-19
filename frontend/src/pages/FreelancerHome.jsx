@@ -1,15 +1,26 @@
 import React, { useState, useEffect } from "react";
-import "./FreelancerHome.css";
-import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import { BsArrowRight, BsBriefcase } from "react-icons/bs";
+import "./FreelancerHome.css";
 import API_URL from "../config/api";
 
+const user = JSON.parse(localStorage.getItem("user"));
+console.log(user);
+
 const FreelancerHome = () => {
+  const [visibleAnswer, setVisibleAnswer] = useState(null);
+
   const navigate = useNavigate();
-  const [user, setUser] = useState(null);
-  const [visibleAnswer, setVisibleAnswer] = useState(null); // State to track which answer is visible
   const [acceptedJobs, setAcceptedJobs] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null);
+  const handleProjectClick = (id) => {
+    navigate(`/freelancer/job/${id}`);
+  };
+  const handleQuestionClick = (num) =>
+    setVisibleAnswer(num === visibleAnswer ? null : num);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -64,14 +75,6 @@ const FreelancerHome = () => {
     }
   };
 
-  const handleQuestionClick = (index) => {
-    setVisibleAnswer(visibleAnswer === index ? null : index); //toggle visibility of answer
-  };
-
-  const handleProjectClick = (jobId) => {
-    navigate(`/freelancer/job/${jobId}`);
-  };
-
   return (
     <main className="freelancer-home">
       <Navbar />
@@ -85,27 +88,138 @@ const FreelancerHome = () => {
 
       <h2 className="how">How it works</h2>
       <section className="worklist">
-        <h3 className="howbox">Create an assignment</h3>
-        <h3 className="howbox"> Deliver great work</h3>
-        <h3 className="howbox"> Get paid</h3>
+        <section className="howbox-flip">
+          <section className="howbox-inner">
+            <section className="howbox howbox-front">Find a project</section>
+            <section className="howbox howbox-back">
+              Accepting a project means you're ready to take it on. Make sure it
+              matches your skills, then start working and deliver great results.
+            </section>
+          </section>
+        </section>
+        <BsArrowRight className="how-arrow" aria-hidden="true" />
+        <section className="howbox-flip">
+          <section className="howbox-inner">
+            <section className="howbox howbox-front">
+              Deliver great work
+            </section>
+            <section className="howbox howbox-back">
+              Once you’ve completed the project, submit your work on time and
+              ensure it meets the client’s expectations. High-quality work leads
+              to positive reviews and more opportunities.
+            </section>
+          </section>
+        </section>
+        <BsArrowRight className="how-arrow" aria-hidden="true" />
+        <section className="howbox-flip">
+          <section className="howbox-inner">
+            <section className="howbox howbox-front">Get paid</section>
+            <section className="howbox howbox-back">
+              After the client approves your work, payment is released to your
+              account. Quick, reliable delivery helps build trust and keeps the
+              earnings coming.
+            </section>
+          </section>
+        </section>
       </section>
 
       <h2 className="servheading">Popular Services</h2>
       <section className="services">
-        <h3 className="servbox">Software Development</h3>
-        <h3 className="servbox">Data Science</h3>
-        <h3 className="servbox">Creating Logos</h3>
-        <h3 className="servbox">Graphic Design</h3>
-        <h3 className="servbox">Digital Marketing</h3>
+        <section className="servbox-flip">
+          <section className="servbox-inner">
+            <section className="servbox servbox-front">
+              Software Development
+            </section>
+            <section className="servbox servbox-back">
+              Build web, mobile, or desktop applications for clients using
+              modern technologies.
+            </section>
+          </section>
+        </section>
+        <section className="servbox-flip">
+          <section className="servbox-inner">
+            <section className="servbox servbox-front">Data Science</section>
+            <section className="servbox servbox-back">
+              Analyze data, build models, and provide insights to help clients
+              make data-driven decisions.
+            </section>
+          </section>
+        </section>
+        <section className="servbox-flip">
+          <section className="servbox-inner">
+            <section className="servbox servbox-front">Creating Logos</section>
+            <section className="servbox servbox-back">
+              Design unique and memorable logos to help brands stand out.
+            </section>
+          </section>
+        </section>
+        <section className="servbox-flip">
+          <section className="servbox-inner">
+            <section className="servbox servbox-front">Graphic Design</section>
+            <section className="servbox servbox-back">
+              Create stunning graphics for web, print, and social media
+              campaigns.
+            </section>
+          </section>
+        </section>
+        <section className="servbox-flip">
+          <section className="servbox-inner">
+            <section className="servbox servbox-front">
+              Digital Marketing
+            </section>
+            <section className="servbox servbox-back">
+              Promote brands and products through SEO, social media, and online
+              ads.
+            </section>
+          </section>
+        </section>
       </section>
 
-      <section>
+      {/* Find Jobs Section */}
+      <section className="findjob-section">
+        <h2 className="findjob-heading">Ready to find your next project?</h2>
         <button
           className="findjobbutton"
           onClick={() => navigate("/freelancer/jobs")}
         >
-          Find Jobs
+          <BsBriefcase className="job-icon" />
+          Browse Projects
         </button>
+      </section>
+
+      <section className="projects">
+        <h2 className="projectheading">Your Projects</h2>
+      </section>
+      <section className="projectlist">
+        {loading ? (
+          <p className="loading">Loading your projects...</p>
+        ) : acceptedJobs.length > 0 ? (
+          acceptedJobs.map((job) => (
+            <article
+              key={job._id}
+              className="projectbox"
+              onClick={() => handleProjectClick(job._id)}
+            >
+              <h3>{job.serviceType}</h3>
+              <p>
+                <span>Client:</span>
+                <span>{job.clientId?.username || "Unknown"}</span>
+              </p>
+              <p>
+                <span>Price: R</span>
+                <span>{job.price}</span>
+              </p>
+              <p>
+                <span>Status:</span>
+                <span className={`status-${job.status?.toLowerCase()}`}>
+                  {job.status}
+                </span>
+              </p>
+            </article>
+          ))
+        ) : (
+          <p>No active projects found. Try applying to new jobs!</p>
+        )}
       </section>
 
       <h2 className="Qs">FAQ's</h2>
@@ -154,43 +268,7 @@ const FreelancerHome = () => {
         </section>
       </section>
 
-      <section className="projects">
-        <h2 className="projectheading">Your Projects</h2>
-      </section>
-      <section className="projectlist">
-        {loading ? (
-          <p className="loading">Loading your projects...</p>
-        ) : acceptedJobs.length > 0 ? (
-          acceptedJobs.map((job) => (
-            <article
-              key={job._id}
-              className="projectbox"
-              onClick={() => handleProjectClick(job._id)}
-            >
-              <h3>{job.serviceType}</h3>
-              <p>
-                <span>Client:</span>
-                <span>{job.clientId?.username || "Unknown"}</span>
-              </p>
-              <p>
-                <span>Price: R</span>
-                <span>{job.price}</span>
-              </p>
-              <p>
-                <span>Status:</span>
-                <span className={`status-${job.status?.toLowerCase()}`}>
-                  {job.status}
-                </span>
-              </p>
-            </article>
-          ))
-        ) : (
-          <p>No active projects found. Try applying to new jobs!</p>
-        )}
-      </section>
-      <footer className="footer">
-        <p>© 2025 SkillVerse. All rights reserved. </p>
-      </footer>
+      <Footer />
     </main>
   );
 };

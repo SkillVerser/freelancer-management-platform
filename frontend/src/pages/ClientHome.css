@@ -2,6 +2,9 @@
 .client-home {
   background-color: #f3f4f6;
   padding: 2rem;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
 }
 
 .welcome-banner {
@@ -11,7 +14,15 @@
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-image: url(./images/skillVerse.jpg.avif);
+  margin-bottom: 2rem;
 }
+
+.welcome-client{
+  font-size: 1.5rem;
+  color: #333;
+  text-align: left;
+}
+
 .heading1 {
   font-size: 80px;
   font-weight: 600;

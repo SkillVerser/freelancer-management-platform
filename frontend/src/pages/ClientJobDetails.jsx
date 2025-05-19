@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { Modal, Button } from "react-bootstrap";
 import "./ClientJobDetails.css";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import FileList from "../components/FileList";
 import API_URL from "../config/api";
 import axios from "axios";
@@ -128,6 +130,7 @@ const ClientJobDetails = () => {
 
   return (
     <main className="client-job-details">
+      <Navbar />
       <section className="job-details-container">
         <h1 className="header-text">Job Details</h1>
 
@@ -247,6 +250,8 @@ const ClientJobDetails = () => {
           </Button>
         </Modal.Footer>
       </Modal>
+
+      <Footer />
     </main>
   );
 };

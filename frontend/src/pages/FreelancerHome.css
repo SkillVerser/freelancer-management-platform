@@ -1,7 +1,12 @@
 .freelancer-home {
   font-family: Georgia, serif;
+  min-height: 100vh;
   padding: 2rem;
   margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+  padding-bottom: 0;
 }
 
 .welcome {
@@ -24,7 +29,7 @@
 }
 
 nav {
-  background-color: #000000; /* dark slate */
+  background-color: #000000;
   color: white;
   padding: 1rem 2rem;
   display: flex;
@@ -70,6 +75,10 @@ nav a:hover {
   text-align: center;
 }
 
+.servheading{
+  padding-top: 50px;
+}
+
 .worklist,
 .services,
 .start {
@@ -79,32 +88,177 @@ nav a:hover {
   margin: 1rem 0 2rem 0;
   list-style-position: inside;
 }
-.howbox,
-.servbox {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 180px;
+
+.how{
+  padding-top: 30px;
+}
+
+.services{
+  padding-bottom: 50px;
+}
+
+/* FLIP CARD STYLES FOR HOWBOX */
+.howbox-flip {
+  perspective: 1000px;
   width: 200px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.howbox-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s cubic-bezier(.7,1.8,.5,1);
+  transform-style: preserve-3d;
+}
+
+.howbox-flip:hover .howbox-inner,
+.howbox-flip:focus-within .howbox-inner {
+  transform: rotateY(180deg);
+}
+
+.howbox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   border-radius: 10px;
-  background-color: #e6f5fe;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.howbox-front {
+  background-color: #AFEEEE;
   color: #1e293b;
+  z-index: 2;
+}
+
+.howbox-back {
+  background-color: #7fd6e8; /* Slightly deeper blue, similar to front */
+  color: #1e293b;
+  transform: rotateY(180deg);
+  z-index: 1;
+  font-size: 0.95rem;      /* Much smaller text */
+  font-weight: normal;     /* Less bold */
+  line-height: 1.4;
+}
+
+/* FLIP CARD STYLES FOR SERVBOX */
+.servbox-flip {
+  perspective: 1000px;
+  width: 200px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.servbox-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s cubic-bezier(.7,1.8,.5,1);
+  transform-style: preserve-3d;
+}
+
+.servbox-flip:hover .servbox-inner,
+.servbox-flip:focus-within .servbox-inner {
+  transform: rotateY(180deg);
+}
+
+.servbox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.servbox-front {
+  background-color: #AFEEEE;
+  color: #1e293b;
+  z-index: 2;
+}
+
+.servbox-back {
+  background-color: #7fd6e8;
+  color: #1e293b;
+  transform: rotateY(180deg);
+  z-index: 1;
+  font-size: 0.95rem;
+  font-weight: normal;
+  line-height: 1.4;
+}
+
+.how-arrow {
+  font-size: 3rem;
+  color: #1e293b;
+  margin: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+/* Find Jobs Section */
+.findjob-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2.5rem 0 2.5rem 0;
+  padding-bottom: 50px;
+}
+
+.findjob-heading {
+  color: #1e293b;
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
 }
 
 .findjobbutton {
-  padding: 0.4rem 0.8rem !important;
-  font-size: 1rem !important;
-  width: 150px !important;
+  padding: 0.4rem 1.2rem !important;
+  font-size: 1.1rem !important;
+  width: auto !important;
+  min-width: 170px !important;
   height: 60px !important;
-  border: 2px solid #1e293b !important;
+  border: none !important;
   border-radius: 4px !important;
-  background-color: #1e293b !important;
+  background-color: #60a5fa !important; /* Standard blue */
   color: white !important;
   cursor: pointer !important;
   align-items: center !important;
+  display: flex !important;
+  justify-content: center !important;
+  gap: 0.7rem !important;
+  font-weight: bold !important;
   transition: background-color 0.3s ease !important;
+}
+
+.findjobbutton:hover {
+  background-color: #2563eb !important; /* Slightly darker blue on hover */
+}
+
+.job-icon {
+  font-size: 1.5rem;
+  vertical-align: middle;
 }
 
 .Qbutton1,
@@ -148,6 +302,7 @@ nav a:hover {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  padding-bottom: 40px;
 }
 
 .projectheading {
@@ -273,6 +428,12 @@ nav a:hover {
   color: white;
   width: 100%;
   padding: 1rem 2rem;
+  padding-bottom: 0;
   display: flex;
   text-align: center;
+  position: relative;
+  left: 0;
+  bottom: 0;
+  margin: 0;
+  box-sizing: border-box;
 }

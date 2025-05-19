@@ -1,91 +1,126 @@
 .freelancer-profile {
-    background-color: #AFEEEE; /* Set the background color */
-    width: 100%; /* Take up the full width of the screen */
-    height: 100vh; /* Take up the full height of the viewport */
-    margin: 0; /* Remove default margin */
+    background-color: #AFEEEE;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
     padding-top: 30px;
 }
 
 .body {
-    display: flex; /* Enable flexbox */
-    flex-direction: column; /* Stack items vertically */
-    justify-content: center; /* Center items vertically */
-    align-items: center; /* Center items horizontally */
-    background-color: #AFEEEE; /* Set the background color */
-    min-height: 100vh; /* Ensure the container takes up the full viewport height */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #AFEEEE;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
-.welcome-heading{
-    white-space: nowrap; /* Prevent the text from wrapping to the next line */
-    text-align: center; /* Center the text horizontally */
-    font-size: 2rem; /* Adjust the font size as needed */
-    font-weight: bold; /* Make the text bold */
-    color: #333; /* Set the text color */
-    margin: 0 0 20px -20px; /* Add 20px space below the heading */
+.welcome-heading {
+    white-space: nowrap;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 20px -20px;
 }
 
 /* Card 1 styles */
 
 #card-heading {
-    white-space: nowrap; /* Prevent the text from wrapping to the next line */
-    overflow: hidden; /* Optional: Prevent content overflow */
-    text-overflow: ellipsis; /* Optional: Add ellipsis if the text overflows */
+    overflow: visible;
+    text-overflow: unset;
+    font-size: 1.1rem !important;
+    text-align: left;
+    justify-content: flex-start;
+    white-space: normal; /* Allow wrapping */
+    width: 100%;         /* Take full width */
+    margin-bottom: 0.5rem;
 }
 
 .profile-card {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
-    margin-left: 260px; /* Add spacing between cards */
-    width: 100%; /* Ensure the card takes up the full column width */
+    margin-left: 260px;
+    width: 100%;
     padding-left: 100px;
     padding-right: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center all content horizontally */
+}
+
+.profile-card .card-body,
+.profile-card .Card.Body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center children horizontally */
 }
 
 .profile-name {
     font-weight: 700;
     color: #333;
-    text-align: center; /* Center the text horizontally */
-    margin: 0 auto; /* Ensure the element is centered */
+    text-align: center;
+    margin: 0 auto;
 }
-  
+
 .profile-info {
     color: black;
     margin-bottom: 0.6rem;
 }
+
 .profile-info-row {
-    display: flex; /* Enable flexbox */
-    align-items: center; /* Align items vertically in the center */
-    justify-content: flex-start; /* Align items horizontally to the left */
-    gap: 10px; /* Add spacing between the label and input */
-    margin-bottom: 10px; /* Add spacing below the row */
-    width: 100%; /* Ensure the row takes up the full width */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center items horizontally */
+    gap: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    flex-wrap: wrap;
+    text-align: center;
 }
 
-.profile-info-row label {
-    font-weight: bold; /* Make the label text bold */
-    white-space: nowrap; /* Prevent the label from wrapping to the next line */
+.profile-info-row label,
+.profile-info-row input,
+.profile-info-row select,
+.profile-info-row textarea,
+.profile-info-row .btn,
+.profile-info-row small {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
-.profile-info-row input {
-    flex: 1; /* Allow the input to take up the remaining space */
-    padding: 5px; /* Add padding inside the input */
-    border: 1px solid #ccc; /* Add a border to the input */
-    border-radius: 5px; /* Add rounded corners */
-    min-width: 0; /* Prevent the input from overflowing */
+.add-skill-btn {
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+    padding-left: 20px;
+}
+
+#card-heading,
+.welcome-heading {
+    text-align: center;
+    width: 100%;
+    margin-left: 0;
 }
 
 .skills-label {
-    font-weight: bold; /* Match the bold style of other labels */
-    font-size: 1rem; /* Match the font size of other labels */
-    color: #333; /* Match the text color of other labels */
-    margin-bottom: 5px; /* Add spacing below the label */
-    display: block; /* Ensure it behaves like a block element */
+    font-weight: bold;
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
 }
 
 .skill-badge {
-    font-size: 1.2rem; /* Increase font size */
-    padding: 10px 15px; /* Add padding for larger size */
-    border-radius: 10px; /* Optional: Add rounded corners */
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
 }

@@ -1,0 +1,43 @@
+.navbar-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+/*Adds space between settings logo and settings text */
+#settings-dropdown .bi-gear-fill {
+  margin-right: 0.4em;
+  vertical-align: middle;
+}
+
+.navbar-btn {
+  background-color: #000 !important;
+  border: none !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  transition: color 0.2s, background 0.2s;
+}
+
+.navbar-btn:hover,
+.navbar-btn:focus-visible {
+  color: #cccccc !important; /* Slightly darker shade of white */
+  background-color: #000 !important;
+  outline: none !important;
+}
+
+.navbar-btn:active {
+  color: #fff !important; /* Ensure it returns to white after click */
+  background-color: #000 !important;
+}

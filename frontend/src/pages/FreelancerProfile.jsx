@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./FreelancerProfile.css";
 import { Card, Container, Row, Col, Badge } from "react-bootstrap";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import API_URL from "../config/api";
@@ -58,11 +59,13 @@ const FreelancerProfile = () => {
   return (
     <main className="freelancer-profile">
       <Navbar />
-      <section
-        className="body"
-        style={{ backgroundColor: "#AFEEEE", minHeight: "100vh" }}
-      >
+      <section className="body">
         <Container className="mt-5">
+          <Row>
+            <h2 className="profile-heading">
+              Welcome to your profile, {User.username.split(" ")[0]}!
+            </h2>
+          </Row>
           <Row className="d-flex justify-content-start">
             {/* Card 1 */}
             <Col md={6} className="col-1">
@@ -133,6 +136,7 @@ const FreelancerProfile = () => {
           </Row>
         </Container>
       </section>
+      <Footer className="footer"/>
     </main>
   );
 };

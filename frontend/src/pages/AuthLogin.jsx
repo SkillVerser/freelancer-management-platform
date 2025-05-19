@@ -60,20 +60,38 @@ const AuthOptions = () => {
               ></i>{" "}
               Continue with Google
             </button>
-            <button className="btn btn-outline-dark" id="twitter-btn">
-              <i
-                className="bi bi-twitter me-2"
-                style={{ color: "#1DA1F2" }}
-              ></i>{" "}
-              Continue with Twitter
-            </button>
-            <button className="btn btn-outline-dark" id="apple-btn">
-              <i className="bi bi-apple me-2"></i> Continue with Apple
-            </button>
-            <button className="btn btn-outline-dark" id="fb-btn">
-              <i className="bi bi-facebook me-2" style={{ color: "blue" }}></i>{" "}
-              Continue with Facebook
-            </button>
+            {/* Added content to fill the right section */}
+            <section className="mt-4 px-3 py-4 rounded right-panel-features">
+              <ul className="list-unstyled mb-4 right-panel-features-list">
+                <li className="mb-3 d-flex align-items-center">
+                  <i
+                    className="bi bi-check-circle-fill text-success me-3"
+                    style={{ fontSize: "1.5rem" }}
+                  ></i>
+                  Project tracking and management
+                </li>
+                <li className="mb-3 d-flex align-items-center">
+                  <i
+                    className="bi bi-check-circle-fill text-success me-3"
+                    style={{ fontSize: "1.5rem" }}
+                  ></i>
+                  Secure and easy payment processing
+                </li>
+                <li className="mb-2 d-flex align-items-center">
+                  <i
+                    className="bi bi-check-circle-fill text-success me-3"
+                    style={{ fontSize: "1.5rem" }}
+                  ></i>
+                  Client or Freelancer option
+                </li>
+              </ul>
+              <blockquote className="blockquote text-muted">
+                “Great things are done by a series of small things brought
+                together.”
+                <br />
+                <footer className="blockquote-footer">Vincent Van Gogh</footer>
+              </blockquote>
+            </section>
           </section>
         </section>
       </section>

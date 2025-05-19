@@ -174,7 +174,7 @@ const CreateProfile = () => {
                   <Button
                     variant="dark"
                     onClick={handleAddSkill}
-                    className="ms-2"
+                    className=" add-skill-btn"
                     style={{ width: "100px" }}
                   >
                     Add Skill

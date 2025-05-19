@@ -6,6 +6,24 @@
   padding-top: 30px;
 }
 
+.body {
+  background-color: #AFEEEE;
+  min-height: 100vh;
+  padding-bottom: 160px; /* Space for footer */
+  padding-top: 10px;     /* Move content up */
+}
+
+.mt-5 {
+  margin-top: 0.5rem !important; /* Reduce top margin to move card up */
+  padding: 20px; /* Add padding inside the card */
+}
+
+.profile-heading{
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-top: -70px !important;
+}
+
 /* Card 1 styles */
 
 .profile-card {
@@ -78,7 +96,8 @@
   font-size: 12px;
   font-weight: bold;
   margin: 0 auto; /* Center the button horizontally */
-  display: block; /* Ensure the button is treated as a block element */
+  display: inline-block; 
+  white-space: nowrap; /* Prevent text from wrapping */
   color: white;
   border: none;
   border-radius: 12px;
