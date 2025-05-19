@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import "./JobRequests.css";
 import API_URL from "../config/api";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";  
 
 function JobRequests() {
   const [jobs, setJobs] = useState([]);
@@ -100,6 +102,7 @@ function JobRequests() {
 
   return (
     <main className="available-jobs-main-jobRequest">
+      <Navbar />
       <h1 className="available-jobs-title-jobRequest">Available Jobs</h1>
       {error && <p>{error}</p>}
 
@@ -188,6 +191,7 @@ function JobRequests() {
           </Button>
         </Modal.Footer>
       </Modal>
+      <Footer />
     </main>
   );
 }

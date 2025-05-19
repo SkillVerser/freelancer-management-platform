@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./JobApplications.css"; // Importing CSS style file
 //import { Card, Button, Badge } from "react-bootstrap";
 //import { FaStar, FaMapMarkerAlt, FaEnvelope } from "react-icons/fa";
-//import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import API_URL from "../config/api";
@@ -56,6 +57,7 @@ const handleAcceptConfirmed = async () => {
   return (
 
 <main className="available-jobs-main-jobRequest">
+  <Navbar />
       <h2 className="available-jobs-title-jobRequest">Applications for this Job</h2>
 
       {applications.length === 0 ? (
@@ -136,7 +138,7 @@ const handleAcceptConfirmed = async () => {
           </Button>
         </Modal.Footer>
       </Modal>
-      
+      <Footer />
     </main>
 
 );

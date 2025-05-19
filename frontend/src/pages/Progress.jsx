@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import './Progress.css';
 
 
-
 const Progress = () => {
     const progressBarRef = useRef(null); // Reference for the progress bar
     const [currentStep, setCurrentStep] = useState(1);
