@@ -6,6 +6,7 @@ const ManageAccounts = () => {
   const [users, setUsers] = useState([]);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [userToDelete, setUserToDelete] = useState(null);
+  const [showDeleteConfirmModal, setShowDeleteConfirmModal] = useState(false);
 //this use effect will fettch every user in the users collection
   useEffect(() => {
     const fetchUsers = async () => {
@@ -40,8 +41,8 @@ const ManageAccounts = () => {
         alert("User deleted successfully.");
       } else {
         // If not successful, get the error message
-        const data = await res.json();
-        alert(data.message || "Failed to delete user.");
+        // alert(data.message || "Failed to delete user.");
+        setShowDeleteConfirmModal(true);
       }
     } catch (err) {
       console.error(err);
@@ -101,7 +102,26 @@ const ManageAccounts = () => {
           )}
         </tbody>
       </table>
-
+      <Modal
+        show={showDeleteConfirmModal}
+        onHide={() => setShowDeleteConfirmModal(false)}
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Acount Deleted</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          This account has been successfully deleted
+        </Modal.Body>
+        <Modal.Footer>
+          <Button
+            variant="primary"
+            onClick={() => setShowDeleteConfirmModal(false)}
+          >
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
       {/* Delete Confirmation Modal */}
       <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)}>
         <Modal.Header closeButton>

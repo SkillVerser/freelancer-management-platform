@@ -60,7 +60,6 @@ const AuthOptions = () => {
               ></i>{" "}
               Continue with Google
             </button>
-            
             <section className="mt-4 px-3 py-4 rounded right-panel-features">
               <ul className="list-unstyled mb-4 right-panel-features-list">
                 <li className="mb-3 d-flex align-items-center">
