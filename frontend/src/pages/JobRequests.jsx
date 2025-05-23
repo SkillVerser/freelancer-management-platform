@@ -73,7 +73,7 @@ function JobRequests() {
         },
         body: JSON.stringify({
           jobId: selectedJob._id,
-          freelancerId: freelancer._id, // 👈 USE the logged-in freelancer ID
+          freelancerId: freelancer._id, // use the logged-in freelancer ID
           coverLetter: coverLetter,
           price: fee,
         }),

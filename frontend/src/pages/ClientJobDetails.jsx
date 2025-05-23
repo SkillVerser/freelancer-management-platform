@@ -9,8 +9,6 @@ import API_URL from "../config/api";
 import axios from "axios";
 
 const user = JSON.parse(localStorage.getItem("user"));
-//console.log("User in local storage:", user);
-//console.log("Email:", user.email);
 
 const ClientJobDetails = () => {
   const { jobId } = useParams();
@@ -27,7 +25,7 @@ const ClientJobDetails = () => {
 
   useEffect(() => {
     if (job) {
-      // Fetch milestones
+      //use effect to fetch milestones
       const fetchMilestones = async () => {
         try {
           const res = await fetch(`${API_URL}/api/milestones/job/${jobId}`, {

@@ -26,16 +26,14 @@
     margin: 0 0 20px -20px;
 }
 
-/* Card 1 styles */
-
 #card-heading {
     overflow: visible;
     text-overflow: unset;
     font-size: 1.1rem !important;
     text-align: left;
     justify-content: flex-start;
-    white-space: normal; /* Allow wrapping */
-    width: 100%;         /* Take full width */
+    white-space: normal;
+    width: 100%;
     margin-bottom: 0.5rem;
 }
 
@@ -48,7 +46,7 @@
     padding-right: 100px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center all content horizontally */
+    align-items: center;
 }
 
 .profile-card .card-body,
@@ -56,7 +54,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center children horizontally */
+    align-items: center;
 }
 
 .profile-name {
@@ -74,7 +72,7 @@
 .profile-info-row {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center items horizontally */
+    justify-content: center;
     gap: 10px;
     margin-bottom: 10px;
     width: 100%;

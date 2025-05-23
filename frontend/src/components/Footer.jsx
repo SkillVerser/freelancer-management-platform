@@ -3,12 +3,12 @@ import "./Footer.css";
 
 const Footer = () => (
   <footer className="footer">
-    <div className="footer-content">
-      <span className="footer-logo">SkillVerse</span>
-      <span className="footer-copy">
+    <article className="footer-content">
+      <section className="footer-logo">SkillVerse</section>
+      <section className="footer-copy">
         © {new Date().getFullYear()} SkillVerse. All rights reserved.
-      </span>
-    </div>
+      </section>
+    </article>
   </footer>
 );
 

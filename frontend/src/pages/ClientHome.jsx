@@ -85,12 +85,6 @@ const ClientHome = () => {
     fetchJobs();
   }, [userId, error, success]); // Fetch jobs whenever userId is updated
 
-  /* Debugging logs
-  console.log("User in useEffect:", user); // Debugging line to check user data
-  console.log("User ID:", user ? user._id : "User not available"); // Debugging line to check user ID
-  console.log("User in localStorage:", localStorage.getItem("user")); // Debugging line to check localStorage
-  console.log("Jobs fetched:", jobs); // Debugging line to check jobs data
-  */
 
   const handleServiceSelection = async (category) => {
     if (!user || !user._id) {
@@ -132,36 +126,6 @@ const handleJobButtonClick = (job) => {
     state: { job } // Pass the entire job object via state
   });
 };
-
-  // const handlePay = async (id) => {
-  //   //console.log("Button clicked!");
-  //   const email = "***@example.com";
-  //   //need a call to backend to retrieve price from applications model.
-  //   //need to handle payment logic as well
-
-  //   try {
-  //     const response = await axios.post(
-  //       `${API_URL}/payments/create-checkout-session`,
-  //       {
-  //         email: email,
-  //         jobId: id,
-  //       },
-  //       {
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //       }
-  //     );
-
-  //     console.log("Full response:", response);
-  //     const { checkoutUrl } = response.data;
-
-  //     // Redirect user to the checkout page
-  //     window.location.href = checkoutUrl;
-  //   } catch (error) {
-  //     console.error("Error creating checkout session:", error);
-  //   }
-  // };
 
   return (
     <main className="client-home">

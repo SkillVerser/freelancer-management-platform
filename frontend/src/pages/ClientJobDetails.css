@@ -65,14 +65,14 @@
   opacity: 0.6;
 }
 .btnCheck:hover {
-  background-color: #009116; /* Slightly lighter blue */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-  transform: translateY(-4px); /* Slight lift effect */
+  background-color: #009116; 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+  transform: translateY(-4px);
 }
 .btnBack:hover {
-  background-color: #000000; /* Slightly lighter blue */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-  transform: translateY(-4px); /* Slight lift effect */
+  background-color: #000000;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
 }
 
 .btnBack {

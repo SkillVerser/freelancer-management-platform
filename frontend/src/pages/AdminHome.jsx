@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./AdminHome.css";
 import { useNavigate } from "react-router-dom";
 import API_URL from "../config/api";
-
+import Footer from "../components/Footer";
 const AdminHome = () => {
   const navigate = useNavigate();
   const [stats, setStats] = useState({
@@ -146,20 +146,9 @@ const AdminHome = () => {
         </section>
       </section>
       <section className="admin-bottom-section">
-        <section className="admin-recent-activity">
-          <h5>📝 Recent Activity</h5>
-          <ul>
-            <li>User JohnDoe registered</li>
-            <li>Ticket #432 resolved</li>
-            <li>New job listing posted</li>
-          </ul>
-        </section>
-
-        <section className="admin-announcements">
-          <h5>📢 Announcements</h5>
-          <p>🚀 New features coming soon! Stay tuned.</p>
-        </section>
+        
       </section>
+      <Footer />
     </>
   );
 };

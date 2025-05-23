@@ -50,7 +50,7 @@
   z-index: 2;
   position: relative;
 }
-/* Styling for buttons */
+/*these are the service buttons*/
 .buttonSD,
 .buttonML,
 .buttonCL,
@@ -58,7 +58,7 @@
 .buttonDM {
   border: none;
   border-radius: 12px;
-  height: 200px; /* Fixed height for all buttons */
+  height: 200px;
   width: 200px;
   background-color: #a3e6e6;
   color: white;
@@ -67,8 +67,8 @@
   cursor: pointer;
   margin: 10px;
   display: flex;
-  align-items: center; /* Vertically centers text */
-  justify-content: center; /* Horizontally centers text */
+  align-items: center; 
+  justify-content: center; 
   transition: all 0.3s ease; /*this will then be used with the code below to add effects to btns*/
 }
 .buttonSD:hover,
@@ -76,14 +76,14 @@
 .buttonCL:hover,
 .buttonGD:hover,
 .buttonDM:hover {
-  background-color:#343a40 ;/* Slightly lighter blue */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-  transform: translateY(-4px); /* Slight lift effect */
+  background-color:#343a40 ;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+  transform: translateY(-4px); 
 }
 
-/* Container to hold button and text */
+
 .button-container {
-  text-align: center; /* Centers the button */
+  text-align: center;
 }
 
 .quick-actions button {
@@ -197,8 +197,8 @@ nav a:hover {
 }
 
 .my-jobs-card button:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-  transform: translateY(-5px); /* Slight lift effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
 }
 .btnCheck{
   background-color:#AFEEEE;
@@ -222,8 +222,8 @@ nav a:hover {
   grid-template-columns: repeat(
     auto-fit,
     minmax(300px, 1fr)
-  ); /* Responsive grid */
-  gap: 1.5rem; /* Space between the cards */
+  ); 
+  gap: 1.5rem;
   margin-top: 1rem;
 }
 .noButton {
@@ -248,7 +248,6 @@ nav a:hover {
   align-items: center;
 }
 
-/* Milestones Modal Styles */
 .modal-body .form-group {
   margin-bottom: 1rem;
 }
@@ -266,7 +265,6 @@ nav a:hover {
   border-radius: 0.25rem;
 }
 
-/* Milestones Button */
 .btnMilestones {
   background-color: #1e293b;
   color: white;

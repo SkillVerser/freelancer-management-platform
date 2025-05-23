@@ -97,7 +97,6 @@ nav a:hover {
   padding-bottom: 50px;
 }
 
-/* FLIP CARD STYLES FOR HOWBOX */
 .howbox-flip {
   perspective: 1000px;
   width: 200px;
@@ -143,16 +142,15 @@ nav a:hover {
 }
 
 .howbox-back {
-  background-color: #7fd6e8; /* Slightly deeper blue, similar to front */
+  background-color: #7fd6e8; 
   color: #1e293b;
   transform: rotateY(180deg);
   z-index: 1;
-  font-size: 0.95rem;      /* Much smaller text */
-  font-weight: normal;     /* Less bold */
+  font-size: 0.95rem;
+  font-weight: normal;
   line-height: 1.4;
 }
 
-/* FLIP CARD STYLES FOR SERVBOX */
 .servbox-flip {
   perspective: 1000px;
   width: 200px;
@@ -216,7 +214,6 @@ nav a:hover {
   user-select: none;
 }
 
-/* Find Jobs Section */
 .findjob-section {
   display: flex;
   flex-direction: column;
@@ -253,7 +250,7 @@ nav a:hover {
 }
 
 .findjobbutton:hover {
-  background-color: #2563eb !important; /* Slightly darker blue on hover */
+  background-color: #2563eb !important;
 }
 
 .job-icon {
@@ -325,7 +322,6 @@ nav a:hover {
   background-color: #1e293b;
 }
 
-/* Project list styles */
 .projectlist {
   display: flex;
   flex-wrap: wrap;
@@ -391,7 +387,6 @@ nav a:hover {
   color: #1e293b;
 }
 
-/* Status badge */
 .projectbox p:last-child {
   display: inline-block;
   padding: 0.4rem 1rem;
@@ -403,7 +398,6 @@ nav a:hover {
   margin-top: 1rem;
 }
 
-/* Empty project list message */
 .projectlist > p {
   text-align: center;
   color: #64748b;
@@ -415,7 +409,6 @@ nav a:hover {
   border: 1px dashed #cbd5e1;
 }
 
-/* Loading state */
 .projectlist p:first-child:only-child {
   text-align: center;
   color: #475569;

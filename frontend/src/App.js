@@ -16,7 +16,6 @@ import ManageAccounts from "./pages/ManageAccounts";
 import ManageJobs from "./pages/ManageJobs";
 import FreelancerJobDetails from "./pages/FreelancerJobDetails";
 import ClientJobDetails from "./pages/ClientJobDetails";
-//import ViewFreelancers from "./pages/ViewFreelancers";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -35,17 +34,17 @@ function App() {
           path="/freelancer/home"
           element={<FreelancerHome user={user} />}
         />
-        {/* Admin Home Page */}
+        {/*route for admin home page */}
         <Route path="/admin/home" element={<AdminHome />} />
-        {/* Role Selection Page */}
+        {/* route for role selection */}
         <Route path="/roles" element={<RoleSelection setRole={setRole} />} />
-        {/* Freelancer Job Requests */}
+        {/* this is the page for job requests from clients */}
         <Route path="/freelancer/jobs" element={<JobRequests />} />
-        {/* Create Profile Page */}
+        {/* page that lets uu create a profile after logging in */}
         <Route path="/create-profile" element={<CreateProfile role={role} />} />
-        {/* Freelancer Profile Page */}
+        {/* profile page for a freelancer */}
         <Route path="/profile" element={<FreelancerProfile />} />
-        {/* Admin Ticket Support Page */}
+        {/* ticket support page for admins */}
         <Route path="/admin/support" element={<TicketSupport />} />
         <Route
           path="/applications/:jobId"

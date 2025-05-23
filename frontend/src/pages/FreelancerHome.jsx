@@ -22,11 +22,11 @@ const FreelancerHome = () => {
   const handleQuestionClick = (num) =>
     setVisibleAnswer(num === visibleAnswer ? null : num);
 
-  useEffect(() => {
+  useEffect(() => {//this use effect is to fetch user data
     const fetchUser = async () => {
       try {
         const res = await fetch(`${API_URL}/auth/me`, {
-          credentials: "include",
+          credentials: "include",//this essentailly includes everything from the model
         });
         if (res.ok) {
           const userData = await res.json();
@@ -34,12 +34,12 @@ const FreelancerHome = () => {
           setUser(userData);
           console.log("User data:", userData);
 
-          // After fetching user, fetch their accepted jobs
+          //after fetching user, fetch their accepted jobs
           if (userData && userData._id) {
-            fetchAcceptedJobs(userData._id);
+            fetchAcceptedJobs(userData._id);//if user isnt null fetch info
           }
         } else {
-          console.error("Failed to fetch user info");
+          console.error("Failed to fetch user info");//couldnt fetch (probably null)
           setLoading(false);
         }
       } catch (err) {
@@ -51,7 +51,7 @@ const FreelancerHome = () => {
     fetchUser();
   }, []);
   console.log("User:", user);
-
+//this is to fetch any jobs that are assigned to the freelancer
   const fetchAcceptedJobs = async (freelancerId) => {
     try {
       const res = await fetch(
@@ -66,7 +66,7 @@ const FreelancerHome = () => {
         setAcceptedJobs(jobsData);
         console.log("Accepted jobs:", jobsData);
       } else {
-        console.error("Failed to fetch accepted jobs");
+        console.error("Failed to fetch accepted jobs");//this will fail if field is null
       }
     } catch (err) {
       console.error("Error fetching accepted jobs:", err);
@@ -175,7 +175,6 @@ const FreelancerHome = () => {
         </section>
       </section>
 
-      {/* Find Jobs Section */}
       <section className="findjob-section">
         <h2 className="findjob-heading">Ready to find your next project?</h2>
         <button

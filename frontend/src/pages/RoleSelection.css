@@ -2,7 +2,7 @@
   background: linear-gradient(45deg, white, rgb(32, 32, 152));
   height: 100vh;
   display: flex;
-  justify-content: center; /* centers horizontally */
+  justify-content: center;
   align-items: center;
   background-image: url(./images/adminbackground.jpg);
 }
@@ -17,7 +17,7 @@
 }
 
 .role-body h1 {
-  margin-top: 0; /* Remove top space from h1 */
+  margin-top: 0;
 }
 
 .roles-container {

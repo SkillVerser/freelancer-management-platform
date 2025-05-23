@@ -18,7 +18,7 @@ const FreelancerJobDetails = () => {
   useEffect(() => {
     const fetchJobDetails = async () => {
       try {
-        // Fetch job details
+        // Fetch job details using the job id assigned
         const jobRes = await fetch(
           `${API_URL}/api/service-requests/job/${jobId}`,
           {

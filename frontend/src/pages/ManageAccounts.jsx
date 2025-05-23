@@ -6,8 +6,7 @@ const ManageAccounts = () => {
   const [users, setUsers] = useState([]);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [userToDelete, setUserToDelete] = useState(null);
-
-  // Fetch users from the API
+//this use effect will fettch every user in the users collection
   useEffect(() => {
     const fetchUsers = async () => {
       try {
@@ -27,7 +26,7 @@ const ManageAccounts = () => {
     fetchUsers();
   }, []);
 
-  // Delete user function
+  //function to delete a user
   const deleteUser = async (userId) => {
     try {
       const res = await fetch(`${API_URL}/api/users/${userId}`, {
@@ -90,8 +89,8 @@ const ManageAccounts = () => {
                   <button
                     className="deleteicn"
                     onClick={() => {
-                      setUserToDelete(user); // Set the user to delete
-                      setShowDeleteModal(true); // Show the confirmation modal
+                      setUserToDelete(user);
+                      setShowDeleteModal(true);
                     }}
                   >
                     <i className="bi bi-trash"></i> {/* Trash bin icon */}Delete
@@ -125,9 +124,9 @@ const ManageAccounts = () => {
             variant="danger"
             onClick={() => {
               if (userToDelete) {
-                deleteUser(userToDelete._id); // Delete the user
+                deleteUser(userToDelete._id);
               }
-              setShowDeleteModal(false); // Close the modal
+              setShowDeleteModal(false); 
             }}
           >
             Yes, Delete

@@ -10,8 +10,8 @@
 .available-jobs-section-jobRequest {
   margin-top: 1rem;
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 3 columns */
-  gap: 1.5rem; /* Space between the cards */
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem; 
   width: 1400px;
   height: 600px;
 }
@@ -24,8 +24,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: relative; /* important */
-  height: 300px; /* set a fixed height for consistency */
+  position: relative;
+  height: 300px;
   position: relative;
   height: 300px;
 }

@@ -15,7 +15,7 @@ const AuthOptions = () => {
         className="row shadow rounded overflow-hidden"
         style={{ width: "80%", maxWidth: "1000px" }}
       >
-        {/* Left section */}
+        {/*this is the left section of the page */}
         <section className="col-md-6 p-0 left-panel">
           <section className="left-panel-inner d-flex flex-column h-100 p-5 text-white">
             <h2 className="welcomeHeading" id="left-panel-heading">
@@ -35,7 +35,7 @@ const AuthOptions = () => {
           </section>
         </section>
 
-        {/* Right section */}
+        {/*this is the right section of the page */}
         <section
           className="col-md-6 p-5"
           style={{ backgroundColor: "#AFEEEE" }}
@@ -60,7 +60,7 @@ const AuthOptions = () => {
               ></i>{" "}
               Continue with Google
             </button>
-            {/* Added content to fill the right section */}
+            
             <section className="mt-4 px-3 py-4 rounded right-panel-features">
               <ul className="list-unstyled mb-4 right-panel-features-list">
                 <li className="mb-3 d-flex align-items-center">
