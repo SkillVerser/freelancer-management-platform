@@ -111,7 +111,7 @@ router.post("/applications", async (req, res) => {
   }
 });
 
-// Get all jobs a client has posted
+// Get all jobs a client has posted (so they can be applied to)
 router.get("/client/jobs/:id", async (req, res) => {
   const { id } = req.params;
   try {
@@ -129,6 +129,7 @@ router.get("/client/jobs/:id", async (req, res) => {
     res.status(500).json({ message: "Error fetching job details" });
   }
 });
+//this is for manage jobs on admin page, fetches a freel and client assigned to eachother
 router.get("/manage-jobs", async (req, res) => {
   try {
     const serviceRequests = await ServiceRequest.find()

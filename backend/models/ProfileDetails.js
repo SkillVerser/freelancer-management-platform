@@ -20,7 +20,7 @@ const profileSchema = new mongoose.Schema(
       default: null,
     },
     skills: {
-      type: [String], // Array of strings for skills
+      type: [String],
       default: null,
     },
     about: {
@@ -29,7 +29,7 @@ const profileSchema = new mongoose.Schema(
     },
   },
   {
-    timestamps: true, //stores created at, updated at information (maybe not necessary)
+    timestamps: true,
   }
 );
 
